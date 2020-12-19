@@ -1,0 +1,13 @@
+<div class="border">
+    <h2 fxLayout="column" fxLayoutAlign="center center">Rezervacije</h2>
+
+    <div *ngFor="let content of contents" class="contentStyle">
+        <app-content-details [content]="content"></app-content-details>
+    </div>
+
+    <div class="buttonStyle" fxLayout="column" fxLayoutAlign="center center" >
+        <button mat-raised-button color="primary" (click)='deleteContent()'>Obriši</button>
+    </div>
+</div>
+
+

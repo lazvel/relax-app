@@ -1,0 +1,65 @@
+<!--Posetilac. 
+Posetilac vrši pretragu događaja od interesa. Svaki
+posetilac ima lični Profil koji sadrži 
+podatke kao što su ime i prezime, kontakt podaci (email,
+telefon, adresa), podaci za prijavljivanje u aplikaciju, i lična interesovanja kao omiljene aktivnosti ili -->
+
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="6px"
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+        <mat-form-field>
+            <input type="text" matInput placeholder="Ime i prezime:"> 
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="email" matInput placeholder="Email:"
+            ngModel name="email" email required #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">Polje ne sme biti prazno</mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">Neispravan format.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hintLabel="Minimum 8 karaktera.">
+            <input type="password" matInput placeholder="Password:"
+            ngModel name="password" required minlength="8"
+            #passInput="ngModel">
+            <mat-hint align="end">{{ passInput.value?.length }} / 8</mat-hint>
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="phone" matInput placeholder="Broj telefona:">
+        </mat-form-field>
+
+        <mat-form-field>
+            <input type="text" matInput placeholder="Adresa:">
+        </mat-form-field>
+
+        <mat-form-field>
+            <mat-label>Interesovanja</mat-label>
+            <mat-select matNativeControl required>
+              <mat-option value="sport">Sport</mat-option>
+              <mat-option value="zabava">Zabava</mat-option>
+              <mat-option value="muzika">Muzika</mat-option>
+            </mat-select>
+        </mat-form-field>
+        
+        <mat-form-field>
+            <input matInput placeholder="Datum rodjenja" [matDatepicker]="picker"
+            ngModel name="birthDate" required>
+            <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+            <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
+
+
+        <button type="submit" mat-raised-button color="primary"
+        [disabled]="f.invalid">Submit</button>
+
+        <mat-checkbox color="primary" ngModel name="acceptance" required>
+            Slazem se sa uslovima koriscenja. 
+        </mat-checkbox>
+
+        <mat-label *ngIf="errorExists">
+            {{ errorText }}
+        </mat-label>
+        <a routerLink="/login">Go back to login</a>
+    </form>
+</section>

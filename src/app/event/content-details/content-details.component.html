@@ -1,0 +1,21 @@
+<form *ngIf="content" fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px">
+    <div>
+        <label>Ime:</label> {{ content.name }}
+    </div>
+
+    <div>
+        <label>Godine:</label> {{ content.age }}
+    </div>
+
+    <div>
+        <label>Dogadjaj:</label> {{ content.event }}
+    </div>
+
+    <div>
+        <label>Aktivan korisnik:</label> {{ content.active }}
+    </div>
+
+    <span   mat-raised-button color="primary" *ngIf='content.active' (click)='updateActive(false)'>Korisnik neaktivan</span><br>
+    <span   mat-raised-button color="primary" *ngIf='!content.active' (click)='updateActive(true)'>Korisnik aktivan</span><br>
+    <button mat-raised-button color="warn"    *ngIf='!content.active' (click)='deleteContent()'>Obriši rezervaciju</button><br>
+</form>

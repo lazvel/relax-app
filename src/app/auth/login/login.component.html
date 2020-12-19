@@ -1,0 +1,25 @@
+<section>
+    <form fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="8px"
+    #f="ngForm" (ngSubmit)="onSubmit(f)">
+
+        <mat-form-field>
+            <input type="email" matInput placeholder="Email:"
+            ngModel name="email" email required #emailInput="ngModel">
+            <mat-error *ngIf="emailInput.hasError('required')">Polje ne sme biti prazno</mat-error>
+            <mat-error *ngIf="!emailInput.hasError('required')">Neispravan format.</mat-error>
+        </mat-form-field>
+
+        <mat-form-field hintLabel="Minimum 8 karaktera.">
+            <input type="password" matInput placeholder="Password:"
+            ngModel name="password" required minlength="8"
+            #passInput="ngModel">
+            <mat-hint align="end">{{ passInput.value?.length }} / 8</mat-hint>
+        </mat-form-field>
+
+        
+        <button type="submit" mat-raised-button color="primary" [disabled]="f.invalid">Login</button>
+
+        <mat-label *ngIf="errorExists">{{ errorText }}</mat-label>
+        <a routerLink ="/signup">I don't have an account</a>
+    </form>
+</section>

@@ -1,0 +1,42 @@
+<div fxLayout="column" fxLayoutAlign="center center">
+    <h1>Ocenjivanje</h1>
+    <h2>Ovde možete uneti Vaše iskustvo, <br>
+        komentar o odredjenom dogadjaju</h2>
+
+</div>
+
+<section fxLayout="column" fxLayoutAlign="center center">
+    <p>Belgrade Beerfest 2019.</p>
+    <form (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label for="it">Unesite Vaše iskustvo</mat-label>
+            <input matInput type="text" placeholder="Komentar"
+            id="it" required [(ngModel)]="valueItem" name="item">
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="warn">Unesi</button>
+    </form>
+
+    <h3>{{ heading }}</h3>
+
+    <b><h3>Belgrade Beerfest 2019. utisci:</h3></b>
+
+    <pre *ngFor="let it of item | async">{{ it.content }}</pre>
+</section>
+
+<section fxLayout="column" fxLayoutAlign="center center">
+    <b><p>Akva Park Arandjelovac</p></b>
+    <form (ngSubmit)="onSubmit()">
+        <mat-form-field>
+            <mat-label for="it">Unesite Vaše iskustvo</mat-label>
+            <input matInput type="text" placeholder="Komentar"
+            id="it" required [(ngModel)]="valueItem" name="item">
+        </mat-form-field>
+
+        <button type="submit" mat-raised-button color="warn">Unesi</button>
+    </form>
+
+    <h2>Akva Park Arandjelovac utisci:</h2>
+
+    <pre *ngFor="let it of item | async">{{ it.content }}</pre>
+</section>

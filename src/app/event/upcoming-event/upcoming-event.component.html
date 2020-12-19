@@ -1,0 +1,63 @@
+<!--<section fxLayout fxLayoutAlign="center">
+    <mat-card fxFlex="600px">
+        <mat-card-title fxLayoutAlign="center">
+            See events
+        </mat-card-title>
+        
+        <mat-card-content fxLayoutAlign="center" fxLayoutGap="20px">
+            <mat-form-field>
+                <mat-select placeholder="Izaberite tip dogadjaja:">
+                    <mat-option value="sport">Sport</mat-option>
+                    <mat-option value="zabava">Zabava</mat-option>
+                    <mat-option value="muzika">Muzika</mat-option>
+                </mat-select>
+            </mat-form-field>
+
+           
+        </mat-card-content>
+
+        <mat-card-actions fxLayoutAlign="center">
+            <button type="submit" mat-raised-button color="primary"
+            (click)="onStartEvent()">Choose</button>
+        </mat-card-actions>
+    </mat-card> -->
+    
+    <h2>
+        Predstojeći dogadjaji:
+    </h2>
+    <h3>Sport</h3>
+      <div style="width: 840px; height: 300px; text-align:center;margin:0; padding:0;">
+        <ng-image-slider #nav
+          [images]="imageObject"
+          [infinite]="false"
+          [autoSlide]="1"
+          [imageSize]="{width: '30%', height: 200}"
+          slideImage="1">
+        </ng-image-slider>
+      </div>
+     
+    <h3>Zabava</h3>
+      <div style="width: 840px; height: 300px; text-align:center;margin:0; padding:0;">
+        <ng-image-slider #nav
+          [images]="imageObject2"
+          [infinite]="false"
+          [autoSlide]="1"
+          [imageSize]="{width: '30%', height: 200}"
+          slideImage="1">
+        </ng-image-slider>
+      </div>
+    
+      <br>  
+    <h3>Muzika</h3>
+      <div style="width: 840px; height: 300px; text-align:center;margin:0; padding:0;">
+        <ng-image-slider #nav
+          [images]="imageObject3"
+          [infinite]="false"
+          [autoSlide]="1"
+          [imageSize]="{width: '30%', height: 200}"
+          slideImage="1">
+        </ng-image-slider>
+      </div>
+      
+    
+
